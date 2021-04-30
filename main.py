@@ -171,7 +171,7 @@ if __name__ == "__main__":
     np.random.seed(0)
     n_threads = 1
 
-    ocp = prepare_ocp(root_folder + "/models/JeChMesh_8DoF.bioMod", final_time=1.5, n_shooting=100, n_threads)
+    ocp = prepare_ocp(root_folder + "/models/JeChMesh_8DoF.bioMod", final_time=1.5, n_shooting=100, n_threads=n_threads)
 
     tic = time()
     sol = ocp.solve(solver_options={"tol": 1e-15, "constr_viol_tol": 1e-15, "max_iter": 1000})
