@@ -31,7 +31,7 @@ conda env update -n root -f environment.yml
 
 
 cd ..
-rm -rv Tests_scaleAWS/
+rm -rf Tests_scaleAWS/
 git clone https://github.com/EveCharbie/Tests_scaleAWS.git
 cd Tests_scaleAWS/
 python main.py
