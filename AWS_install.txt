@@ -18,6 +18,8 @@ python setup.py install
 conda install rbdl=*=*casadi* -cconda-forge
 conda install biorbd=*=*casadi* -cconda-forge
 conda install -c conda-forge numpy
+conda install graphviz -cconda-forge
+conda install python-graphviz
 cd ..
 git clone https://github.com/EveCharbie/Tests_scaleAWS.git
 cd Tests_scaleAWS/
@@ -26,3 +28,11 @@ python main.py
 
 
 conda env update -n root -f environment.yml
+
+
+cd ..
+rm -rv Tests_scaleAWS/
+git clone https://github.com/EveCharbie/Tests_scaleAWS.git
+cd Tests_scaleAWS/
+python main.py
+
