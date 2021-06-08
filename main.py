@@ -168,7 +168,7 @@ def prepare_ocp(biorbd_model_path: str, final_time: float, n_shooting: int, n_th
 if __name__ == "__main__":
     root_folder = "/".join(__file__.split("/")[:-1])
     np.random.seed(0)
-    n_threads = 64
+    n_threads = 1
 
     ocp = prepare_ocp("JeChMesh_8DoF.bioMod", final_time=1.5, n_shooting=100, n_threads=n_threads)
 
@@ -179,7 +179,7 @@ if __name__ == "__main__":
     port = 465  # For SSL
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
-        server.login("evidoux@gmail.com", "Josee9596")
+        server.login("evidoux@gmail.com", "Jose9596")
         server.sendmail("evidoux@gmail.com", "evidoux@gmail.com", f'n_threads = {n_threads}\n Time to solve : {time() - tic}sec')
 
 

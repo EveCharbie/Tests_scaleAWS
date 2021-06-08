@@ -1,0 +1,7 @@
+# sudo chmod 0400 .ssh/home/user/Documents/Programmation/BiorbdOptim/examples/sandbox/MultiStart_Sauteur/AWS/Sauteur_multiStart.pem
+
+ssh -i /home/user/Documents/Programmation/BiorbdOptim/examples/sandbox/MultiStart_Sauteur/AWS/Sauteur_multiStart.pem ubuntu@ec2-18-220-133-217.us-east-2.compute.amazonaws.com
+
+
+
+
