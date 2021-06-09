@@ -3,7 +3,7 @@ from casadi import vertcat, MX
 from .dynamics_function import dynamics
 from .objective_function import objective
 from.constraint_function import constraint
-from.parameters_functions import parameter
+# from.parameters_functions import parameter
 
 from bioptim import (
     OptimalControlProgram,
