@@ -74,6 +74,12 @@ grf_ref = data.grf_ref
 moments_ref = data.moments_ref
 cop_ref = data.cop_ref
 
+
+
+n_threads = 8
+
+
+
 gait_muscle_driven_markers_tracking = gait_muscle_driven(models=biorbd_model,
                                                         nb_shooting=number_shooting_points,
                                                         phase_time=phase_time,
@@ -83,7 +89,7 @@ gait_muscle_driven_markers_tracking = gait_muscle_driven(models=biorbd_model,
                                                         grf_ref=grf_ref,
                                                         moments_ref=moments_ref,
                                                         cop_ref=cop_ref,
-                                                        n_threads=8)
+                                                        n_threads=n_threads)
 
 # gait_muscle_driven_markers_tracking.ocp.print()
 tic = time()
@@ -91,12 +97,19 @@ tic = time()
 sol = gait_muscle_driven_markers_tracking.solve()
 toc = time() - tic
 
+
+port = 465  # For SSL
+context = ssl.create_default_context()
+with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+    server.login("evidoux@gmail.com", "Jose9596")
+    server.sendmail("evidoux@gmail.com", "evidoux@gmail.com", f'n_threads = {n_threads}\n Time to solve : {toc}sec')
+        
 # --- Save results --- #
-save_path = './RES/muscle_driven/no_last_contact_cstr/'
-save_results(gait_muscle_driven_markers_tracking.ocp, sol, save_path)
+# save_path = './RES/muscle_driven/no_last_contact_cstr/'
+# save_results(gait_muscle_driven_markers_tracking.ocp, sol, save_path)
 
 # ocp_prev, sol = gait_muscle_driven_markers_tracking.ocp.load('./RES/muscle_driven/Hip_muscle/OpenSim/cycle.bo')
 # --- Show results --- #
-sol.animate()
-sol.graphs()
-sol.print()
+# sol.animate()
+# sol.graphs()
+# sol.print()
