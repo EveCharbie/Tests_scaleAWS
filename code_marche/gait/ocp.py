@@ -19,6 +19,27 @@ from bioptim import (
     Solver,
     ParameterList,
 )
+import numpy as np
+from casadi import vertcat, MX
+from .dynamics_function import dynamics
+from .objective_function import objective
+from.constraint_function import constraint
+# from.parameters_functions import parameter
+
+from bioptim import (
+    OptimalControlProgram,
+    DynamicsList,
+    BoundsList,
+    QAndQDotBounds,
+    InitialGuessList,
+    ObjectiveList,
+    InterpolationType,
+    ConstraintList,
+    PhaseTransitionList,
+    PhaseTransitionFcn,
+    Solver,
+    ParameterList,
+)
 
 
 class gait_muscle_driven:
@@ -160,7 +181,7 @@ class gait_muscle_driven:
                 "ipopt.max_iter": 2000,
                 "ipopt.hessian_approximation": "exact",
                 "ipopt.limited_memory_max_history": 50,
-                "ipopt.linear_solver": "ma57",
+                #"ipopt.linear_solver": "ma57",
             },
             show_online_optim=False,
         )

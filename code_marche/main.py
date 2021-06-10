@@ -11,6 +11,7 @@ from matplotlib import pyplot as plt
 
 from gait.load_experimental_data import LoadData
 from gait.ocp import gait_muscle_driven
+import smtplib, ssl
 
 
 def get_q_name(model):
@@ -57,9 +58,9 @@ nb_mus = biorbd_model[0].nbMuscleTotal()
 
 # Generate data from file
 # --- files path ---
-c3d_file = "../../DonneesMouvement/normal01_out.c3d"
-q_kalman_filter_file = "../../DonneesMouvement/normal01_q_KalmanFilter.txt"
-qdot_kalman_filter_file = "../../DonneesMouvement/normal01_qdot_KalmanFilter.txt"
+c3d_file = "data/normal01_out.c3d"
+q_kalman_filter_file = "data/normal01_q_KalmanFilter.txt"
+qdot_kalman_filter_file = "data/normal01_qdot_KalmanFilter.txt"
 data = LoadData(biorbd_model[0], c3d_file, q_kalman_filter_file, qdot_kalman_filter_file, 0.01, interpolation=True)
 
 # --- phase time and number of shooting ---
@@ -76,7 +77,7 @@ cop_ref = data.cop_ref
 
 
 
-n_threads = 8
+n_threads = 64
 
 
 

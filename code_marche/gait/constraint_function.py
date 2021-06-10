@@ -12,7 +12,7 @@ def get_last_contact_force_null(pn: PenaltyNode, idx_forces: np.ndarray) -> MX:
 
     Parameters
     ----------
-    pn: PenaltyNodes
+    pn: PenaltyNode
         The penalty node elements
     idx_forces: array
         indices of the force to set at 0

@@ -12,7 +12,7 @@ def track_sum_contact_forces(pn: PenaltyNode, grf: np.ndarray) -> MX:
 
     Parameters
     ----------
-    pn: PenaltyNodes
+    pn: PenaltyNode
         The penalty node elements
     grf: np.ndarray
         Array of the measured ground reaction forces
@@ -67,7 +67,7 @@ def track_sum_contact_moments(pn: PenaltyNode, CoP: np.ndarray, M_ref: np.ndarra
 
     Parameters
     ----------
-    pn: PenaltyNodes
+    pn: PenaltyNode
         The penalty node elements
     CoP: np.ndarray
         Array of the measured center of pressure trajectory
